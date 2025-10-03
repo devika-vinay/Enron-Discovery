@@ -1,6 +1,6 @@
 # Enron eDiscovery Pipeline
-
-Phases: **Collection → Preservation/Parsing → Normalization → Analysis (NER) → Packaging (DB) → Search**.
+A lightweight, end-to-end eDiscovery demo that ingests the Enron emails CSV, preserves raw evidence, normalizes, loads into a queryable store, and serves a simple Streamlit UI for search & review.
+```
 
 - Chain of Custody: every step appends a JSONL record in `logs/coc.jsonl` with hashes & timestamps.
 - Data: place source `.mbox` / `.eml` in `data/source/`
