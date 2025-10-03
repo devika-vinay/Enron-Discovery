@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS emails (
   INDEX idx_from_addr (from_addr),
   INDEX idx_sent_at (sent_at),
   FULLTEXT INDEX ft_subject_body (subject, body_text)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)
 ```
 ---
 
