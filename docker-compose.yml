@@ -1,0 +1,14 @@
+services:
+  enron:
+    build: .
+    container_name: enron-ediscovery
+    working_dir: /app
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    environment:
+      - LIMIT=10000
+    ports:
+      - "8501:8501"            # For Streamlit UI
+    command: ["bash", "-lc", "./run_pipeline.sh"]
