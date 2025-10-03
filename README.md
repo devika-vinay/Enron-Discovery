@@ -2,6 +2,7 @@
 # Enron eDiscovery Pipeline
 
 ## Highlights
+
 A lightweight, end-to-end eDiscovery demo that ingests the Enron emails CSV, preserves raw evidence, normalizes, loads into a queryable store, and serves a simple Streamlit UI for search & review.
 
 - ETL pipeline: Collect -> Parse -> Normalize -> Load → Search UI
