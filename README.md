@@ -10,16 +10,12 @@ A lightweight, end-to-end eDiscovery pipelin that ingests the Enron emails CSV, 
 ---
 
 ---
-## Data
-Use the Kaggle Enron Emails CSV and save as: data/source/emails.csv
----
-
----
 ## Quickstart
 
 ### Prereqs
 - Install Docker Desktop.
 - Have MySQL running on Windows/mac host
+- Use the Kaggle Enron Emails CSV and save as: data/source/emails.csv
 - Create .env (project root) and paste the following
 ```
 MYSQL_HOST=host.docker.internal
