@@ -2,14 +2,13 @@
 
 ## Highlights
 
-A lightweight, end-to-end eDiscovery pipelin that ingests the Enron emails CSV, preserves raw evidence, normalizes, loads into a queryable store, and serves a simple Streamlit UI for search & review.
+A lightweight, end-to-end eDiscovery pipeline that ingests the Enron emails CSV, preserves raw evidence, normalizes, loads into a queryable store, and serves a simple Streamlit UI for search & review.
 
 - ETL pipeline: Collect -> Parse -> Normalize -> Load → Search UI
 - Chain of custody: SHA-256 fingerprints + JSONL audit log
 - Search UI: Streamlit app with full-text search, sender & date filters, CSV export
 ---
 
----
 ## Pipeline Stages (what each script does)
 
 ### 1) Collect.py
@@ -50,7 +49,6 @@ CREATE TABLE IF NOT EXISTS emails (
 ```
 ---
 
----
 ## Quickstart
 
 ### Prereqs
@@ -73,10 +71,8 @@ docker compose up --build
 ```
 ---
 
----
 ## Roadmap Ideas
 - Entity browser (PERSON/ORG filters) in the UI
 - Attachment extraction
 - PII redaction
 - RAG summaries
----
