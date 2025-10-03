@@ -10,29 +10,6 @@ A lightweight, end-to-end eDiscovery pipelin that ingests the Enron emails CSV, 
 ---
 
 ---
-## Quickstart
-
-### Prereqs
-- Install Docker Desktop.
-- Have MySQL running on Windows/mac host
-- Use the Kaggle Enron Emails CSV and save as: data/source/emails.csv
-- Create .env (project root) and paste the following
-```
-MYSQL_HOST=host.docker.internal
-MYSQL_PORT=3306
-MYSQL_DB=enron-db
-MYSQL_USER="your username"
-MYSQL_PASSWORD="your password"
-```
-
-### Running the pipeline (commands to be executed on cmd)
-```
-docker build -t enron-ediscovery:latest .
-docker compose up --build
-```
----
-
----
 ## Pipeline Stages (what each script does)
 
 ### 1) Collect.py
@@ -70,6 +47,29 @@ CREATE TABLE IF NOT EXISTS emails (
   INDEX idx_sent_at (sent_at),
   FULLTEXT INDEX ft_subject_body (subject, body_text)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+---
+
+---
+## Quickstart
+
+### Prereqs
+- Install Docker Desktop.
+- Have MySQL running on Windows/mac host
+- Use the Kaggle Enron Emails CSV and save as: data/source/emails.csv
+- Create .env (project root) and paste the following
+```
+MYSQL_HOST=host.docker.internal
+MYSQL_PORT=3306
+MYSQL_DB=enron-db
+MYSQL_USER="your username"
+MYSQL_PASSWORD="your password"
+```
+
+### Running the pipeline (commands to be executed on cmd)
+```
+docker build -t enron-ediscovery:latest .
+docker compose up --build
 ```
 ---
 
