@@ -1,38 +1,42 @@
 # Enron eDiscovery Pipeline
 A lightweight, end-to-end eDiscovery demo that ingests the Enron emails CSV, preserves raw evidence, normalizes, loads into a queryable store, and serves a simple Streamlit UI for search & review.
-```
+---
 
-```
+---
 ## Highlights
 - ETL pipeline: Collect -> Parse -> Normalize -> Load → Search UI
 - Chain of custody: SHA-256 fingerprints + JSONL audit log
 - Search UI: Streamlit app with full-text search, sender & date filters, CSV export
-```
+---
 
-```
+---
 ## Data
 Use the Kaggle Enron Emails CSV and save as: data/source/emails.csv
-```
+---
 
-```
+---
 ## Quickstart
 
 ### Prereqs
 - Install Docker Desktop.
 - Have MySQL running on Windows/mac host
 - Create .env (project root) and paste the following
+```
 MYSQL_HOST=host.docker.internal
 MYSQL_PORT=3306
 MYSQL_DB=enron-db
 MYSQL_USER="your username"
 MYSQL_PASSWORD="your password"
+```
 
 ### Running the pipeline (commands to be executed on cmd)
+```
 docker build -t enron-ediscovery:latest .
 docker compose up --build
 ```
+---
 
-```
+---
 ## Pipeline Stages (what each script does)
 
 ### 1) Collect.py
@@ -50,6 +54,7 @@ docker compose up --build
 
 ### 5) Load.py
 - Creates emails table (DDL below)
+```
 CREATE TABLE IF NOT EXISTS emails (
   email_id    BIGINT AUTO_INCREMENT PRIMARY KEY,
   file        VARCHAR(255) NOT NULL UNIQUE,
@@ -70,10 +75,12 @@ CREATE TABLE IF NOT EXISTS emails (
   FULLTEXT INDEX ft_subject_body (subject, body_text)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
+---
 
-```
+---
 ## Roadmap Ideas
 - Entity browser (PERSON/ORG filters) in the UI
 - Attachment extraction
 - PII redaction
 - RAG summaries
+---
